@@ -1,0 +1,20 @@
+#SUBSCRIBED https://whatshub.top/stoverride/wechatad.stoverride
+#!desc=微信公众号去广告
+#!icon=https://raw.githubusercontent.com/deezertidal/private/main/icons/wechatad.png
+#!homepage=https://whatshub.top
+#!author=HotKids
+name: weixingongzhonghaoquguanggao
+desc: 微信公众号去广告
+http:
+  mitm:
+    - "mp.weixin.qq.com"
+  script:
+    - match: ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad
+      name: weixingongzhonghaoquguanggao1
+      type: response
+      require-body: true
+      timeout: 10
+script-providers:
+  weixingongzhonghaoquguanggao1:
+    url: https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js
+    interval: 86400

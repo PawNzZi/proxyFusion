@@ -1,0 +1,13 @@
+#SUBSCRIBED https://p.19940731.xyz/api/stash/stoverride/tiles/github/rate-limit
+name: Github Rate Limit
+desc: |-
+    绕过针对 CN 的 `You have triggered a rate limit` 限制
+category: enhance
+icon: https://raw.githubusercontent.com/qsoyq/icons/main/assets/icon/github.png
+http:
+    mitm:
+        - "gist.githubusercontent.com"
+        - "raw.githubusercontent.com"
+        - "avatars.githubusercontent.com"
+    header-rewrite:
+        - https://(avatars|gist|raw).githubusercontent.com request-replace Accept-Language en-us

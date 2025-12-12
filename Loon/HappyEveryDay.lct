@@ -1,0 +1,208 @@
+# Loon自用配置
+# 注意事项: 以下内容中，带“#”开头的行都是注释，去掉注释符号该行才有效
+# 重要提示：导入本文件会覆盖原本配置，请谨慎使用
+# 文件地址：https://raw.githubusercontent.com/fmz200/wool_scripts/main/Loon/config/Loon.conf
+# 交流群组：https://t.me/lanjieguanggao
+# 更新时间: 2024-08-24 17:00:00
+# 配置作者: 奶思
+
+# =====================================
+# General
+# =====================================
+[General]
+ip-mode = ipv4-only
+disable-stun = false
+dns-reject-mode = LoopbackIP
+domain-reject-mode = DNS
+udp-fallback-mode = REJECT
+sni-sniffing = true
+disconnect-on-policy-change = false
+switch-node-after-failure-times = 3
+# > 跳过某个域名或者IP段
+skip-proxy = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlynatics.com
+bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
+# > DNS 服务器
+dns-server = system,223.5.5.5,119.29.29.29,8.8.8.8
+interface-mode = auto
+# Wi-Fi 访问
+# > 允许 Wi-Fi 网络下其它设备访问
+#allow-udp-proxy = false
+allow-wifi-access = false
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+# > 代理测速 URL
+proxy-test-url = http://www.google.com/generate_204
+internet-test-url = http://connectivitycheck.platform.hicloud.com/generate_204
+# > 测速超时 (s)
+test-timeout = 5
+# > 解决一些ip请求无法匹配域名类规则的问题。real-ip指定的域名将不返回fake ip响应，直接将dns请求发往目标dns服务器
+#real-ip = msftconnecttest.com,msftncsi.com,*.msftconnecttest.com,*.msftncsi.com,*.srv.nintendo.net,*.stun.playstation.net,xbox.*.microsoft.com,*.xboxlive.com,*.battlenet.com.cn,*.battlenet.com,*.blzstatic.cn,*.battle.net
+# 解析器
+# resource-parser = https://gitlab.com/sub-store/Sub-Store/-/releases/permalink/latest/downloads/sub-store-parser.loon.min.js
+# geoip
+geoip-url = https://github.com/Masaiki/GeoIP2-CN/raw/release/Country.mmdb
+# ssid-trigger参数，用于指定SSID下流量模式切换，（default表示默认，cellular表示蜂窝，目前支持三种值：rule，direct，proxy） 
+# ssid-trigger="default":rule,"cellular":rule,"ASUS":direct,"TPLINK":proxy 
+ipasn-url = https://raw.githubusercontent.com/P3TERX/GeoLite.mmdb/download/GeoLite2-ASN.mmdb
+
+
+# =====================================
+# Host
+# =====================================
+[Host]
+# 改善App Store下载速度
+iosapps.itunes.apple.com = iosapps.itunes.apple.com.download.ks-cdn.com
+
+
+# =====================================
+# Proxy 本地的代理节点
+# =====================================
+[Proxy]
+
+
+# =====================================
+# Remote Proxy 订阅链接
+# =====================================
+[Remote Proxy]
+
+
+# =====================================
+# Proxy Group
+# =====================================
+[Proxy Group]
+兜底策略 = select,香港节点,日本节点,DIRECT,img-url = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Loon_02.png
+电报消息 = select,NAIYUN_香港节点,NAIYUN_狮城节点,NAIYUN_台湾节点,img-url = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Telegram_01.png
+海外抖音 = select,香港节点,台湾节点,日本节点,NAIYUN_香港节点,NAIYUN_狮城节点,NAIYUN_台湾节点,,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok_1.png
+人工智能 = select,日本节点,AI节点,img-url = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/ChatGPT3.png
+苹果服务 = select,DIRECT,美国节点,img-url = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Apple_02.png
+谷歌服务 = select,香港节点,日本节点,NAIYUN_香港节点,NAIYUN_狮城节点,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png
+油管视频 = select,香港节点,日本节点,NAIYUN_香港节点,NAIYUN_狮城节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+微软服务 = select,DIRECT,美国节点,日本节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
+
+# 节点筛选
+香港节点 = url-test,HK_Filter,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+台湾节点 = url-test,TW_Filter,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
+美国节点 = url-test,US_Filter,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+日本节点 = url-test,JP_Filter,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+韩国节点 = url-test,KR_Filter,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
+狮城节点 = url-test,SG_Filter,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+AI节点 = url-test,AI_Filter,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/ChatGPT3.png
+NAIYUN_香港节点 = url-test,NAIYUN_HK_Filter,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+NAIYUN_狮城节点 = url-test,NAIYUN_SG_Filter,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+NAIYUN_台湾节点 = url-test,NAIYUN_TW_Filter,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
+
+# =====================================
+# Remote Filter
+# (?i)：表示后面整个括号内的表达式不区分大小写
+# =====================================
+[Remote Filter]
+HK_Filter = NameRegex, 我的订阅, FilterKey = "(?i)(🇭🇰|港|HK)"
+TW_Filter = NameRegex, 我的订阅, FilterKey = "(?i)(台|TW|Tai)"
+US_Filter = NameRegex, 我的订阅, FilterKey = "(?i)(🇺🇸|美|US)"
+JP_Filter = NameRegex, 我的订阅, FilterKey = "(?i)(🇯🇵|日本|JP|Japan)"
+KR_Filter = NameRegex, 我的订阅, FilterKey = "(?i)(🇰🇷|KR|Korea|KOR|首尔|韩|韓)"
+SG_Filter = NameRegex, 我的订阅, FilterKey = "(?i)(🇸🇬|新加坡|狮城|SG|Singapore)"
+NAIYUN_HK_Filter = NameRegex, 奈云, FilterKey = "(?i)(🇭🇰|港|HK)"
+NAIYUN_SG_Filter = NameRegex, 奈云, FilterKey = "(?i)(🇸🇬|新加坡)"
+NAIYUN_TW_Filter = NameRegex, 奈云, FilterKey = "(?i)(台|TW)"
+AI_Filter = NameRegex, 魔戒, FilterKey = "(?i)(Gemini|GPT)"
+
+
+# =====================================
+# Rule
+# Options:no-resolve(only for cidr)
+# =====================================
+[Rule]
+# 信息收集
+URL-REGEX,\.log\.,REJECT
+# 海角社区
+DOMAIN-KEYWORD,haijiao,美国节点
+# 兜底策略
+FINAL,兜底策略
+
+
+# =====================================
+# Remote Rule
+# =====================================
+[Remote Rule]
+https://github.com/fmz200/wool_scripts/raw/main/Loon/rule/rejectAd.list, policy=REJECT, tag=广告拦截合集-规则@奶思, enabled=true
+https://github.com/fmz200/wool_scripts/raw/main/Loon/rule/apple_update.list, policy=REJECT, tag=苹果屏蔽系统更新@奶思, enabled=false
+https://github.com/fmz200/wool_scripts/raw/main/Loon/rule/AI.list, policy=人工智能, tag=AI分流合集@奶思, enabled=true
+https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Loon/TikTok/TikTok.list, policy=海外抖音, tag=TikTok@bm7, enabled=true
+https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Loon/Telegram/Telegram.list, policy=电报消息, tag=Telegram@bm7, enabled=true
+https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Loon/GitHub/GitHub.list, policy=香港节点, tag=Github@bm7, enabled=true
+https://github.com/fmz200/wool_scripts/raw/main/Loon/rule/Twitter.list, policy=日本节点, tag=Twitter@bm7, enabled=true
+https://github.com/fmz200/wool_scripts/raw/main/Loon/rule/AppleAll.list, policy=苹果服务, tag=苹果服务@奶思, enabled=true
+https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Loon/YouTubeMusic/YouTubeMusic.list, policy=油管视频, tag=YouTube Music@bm7, enabled=true
+https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Loon/YouTube/YouTube.list, policy=油管视频, tag=YouTube@bm7, enabled=true
+https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Loon/Google/Google.list, policy=谷歌服务, tag=Google@bm7, enabled=true
+https://github.com/fmz200/wool_scripts/raw/main/Loon/rule/LAN.list, policy=DIRECT, tag=LAN@奶思, enabled=true
+https://github.com/fmz200/wool_scripts/raw/main/Loon/rule/GeoIP_CN.list, policy=DIRECT, tag=GeoIP_CN@奶思, enabled=true
+
+
+
+# =====================================
+# Rewrite
+# =====================================
+[Rewrite]
+# TF解锁区域限制
+# ^https?://testflight\.apple\.com/v\d/accounts/.+?/install$ request-body-json-jq '.storefrontId = "143441-19,29"'
+
+
+# =====================================
+# Script
+# =====================================
+[Script]
+
+
+# =====================================
+# Remote Script
+# =====================================
+[Remote Script]
+
+
+# =====================================
+# 插件
+# =====================================
+[Plugin]
+https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/blockAds.plugin, enabled=true
+https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/WeChatMiniAds.plugin, enabled=true
+https://raw.githubusercontent.com/Tartarus2014/Loon-Script/refs/heads/master/Plugin/skip-proxy.lpx, enabled=true
+https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/plugin/HTTPDNS.Block.plugin, enabled=true
+https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/DragonRead_remove_ads.lpx, enabled=false
+https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/plugin/DNS.plugin, enabled=false
+https://kelee.one/Tool/Loon/Lpx/BaiduNetDisk_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/QtingFM_remove_ads.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/iQiYi_Video_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/QuarkBrowser_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Weixin_external_links_unlock.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Himalaya_remove_ads.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/RedPaper_remove_ads.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/12306_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/FleaMarket_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/YouTube_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Weixin_Official_Accounts_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/JD_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Zhihu_remove_ads.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/PinDuoDuo_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Prevent_DNS_Leaks.lpx, enabled=false
+https://github.com/NSRingo/WeatherKit/releases/latest/download/iRingo.WeatherKit.plugin, enabled=true
+https://github.com/BiliUniverse/Enhanced/releases/latest/download/BiliBili.Enhanced.plugin, enabled=true
+https://github.com/BiliUniverse/ADBlock/releases/latest/download/BiliBili.ADBlock.plugin, enabled=true
+https://github.com/chavyleung/scripts/raw/master/box/rewrite/boxjs.rewrite.loon.plugin, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Auto_Join_TF.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/TestFlightRegionUnlock.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/Google.lpx, enabled=true
+
+
+
+# =====================================
+# Mitm
+# =====================================
+[Mitm]
+ca-p12 = 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
+ca-passphrase = B492426D
+skip-server-cert-verify = false
